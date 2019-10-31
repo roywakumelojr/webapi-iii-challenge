@@ -12,12 +12,12 @@ server.get('/', (req, res) => {
 //custom middleware
 
 function logger(req, res, next) {
-  console.log(`Info Logger: [${new Date().toISOString}] ${req.method} to ${req.url}`);
+  console.log(`Information Logger: [${new Date().toISOString}] ${req.method} to ${req.url}`);
 
   next();
 };
 
-server.use(helmet);
+server.use(helmet());
 server.use(userRouter);
 server.use(logger);
 server.use(express.json())
